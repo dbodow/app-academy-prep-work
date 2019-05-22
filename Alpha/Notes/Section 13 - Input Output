@@ -1,0 +1,37 @@
+Section 13: Input / Output
+
+Vocabulary:
+  REPL - Read-Eval-Print Loop
+
+Key Concepts:
+  - if you open a file with a block, it closes automatically
+  - if you make a file object, it must be closed to save the in memory data to disk
+  - use blocks when possible instead of objects to reduce I/O mistakes
+  - *nix operating systems' stdin and stdout are just special files
+    - in Ruby, you can access them with global variables $stdin and $stdout
+
+Ruby keywords:
+  gets - reads a line from stdin and returns it, including the final \n
+  chomp - trims off the newline at the end of a sting
+    - e.g. gets.chomp
+  print - converts its argument to a string and then writes it to stdout
+    - does not append a "\n" to the output; calling .print multiple times will all write to the same line
+  puts - same as print, but appends a "\n" to the output
+    - also adds newlines to every object in an array
+  p - writes THING.inspect to stdout (instead of THING.to_s)
+  File.open(PATH) - opens a file at PATH and returns a file object
+  File.foreach(PATH) { PROC } - opens the file and runs PROC for each line
+  File.read(PATH) - returns the file contents as a string
+  File.readlines(PATH) - returns the file contents as an array of strings
+    - each string is one line of the file
+  File.open(PATH, "w") - open a file in write mode
+    - will write over an existing file
+    - e.g:
+      File.open("cool-things.txt", "w") do |f|
+        f.puts "Race cars"
+        f.puts "Lasers"
+        f.puts "Aeroplanes"
+      end
+  File.open(PATH, "a") - opens a writable file, but appends all outputs instead of overwriting
+  FILE.close - closes FILE writing changes to disk
+  ARGV - the arguments provided from Bash as an array of strings

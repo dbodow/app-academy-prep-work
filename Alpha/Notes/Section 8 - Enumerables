@@ -1,0 +1,29 @@
+Section 8: Enumerables
+
+Vocabulary:
+
+Key Concepts:
+
+Ruby keywords:
+  - .all? - Runs a boolean test over all elements of an array folded with AND
+    - e.g. ARR.all? { |int| int.odd? }
+  - .none? - Tests that all elements of an array fail a boolean test
+  - .any? - Tests whether at least one element of an array passes a boolean test
+  - .map / .map! - same as in functional programming
+  - .count - several variations:
+    - [1, 2, 3, 4, 5].count #=> 5
+    - [1, 2, 3, 4, 5].count(2) #=> 1
+    - [1, 2, 3, 4, 5].count {|int| int.odd?} #=> 3
+  - .select{ |ITEM| BOOLEANTEST(ITEM) } - Filter
+  - .reject{} - Filter for the converse of .select
+  - .sort_by - sorts an array based on a given property of its elements
+    - e.g. ARR.sort_by { |ITEM| ITEM.length }
+  - .with_index - provides the array's index as a second block/proc variable
+    - e.g. [1,2,3].map.with_index { |item, index| item ** 2 + index }
+  - .each_char - iterates through each character in a string
+  - .reduce - this is a left fold with the folding function given as a symbol
+    - optionally, you can define the function in terms of an accumulator and the current value
+    - the accumulator is initially set to the first value of the array if nothing is given as an argument
+    - e.g. [1,2,3,4,5].reduce(:+)
+    - e.g. [1,2,3,4,5].reduce{ |accum, current| accum + current }
+    - e.g. [1,2,3,4,5].reduce(0){ |accum, current| accum + current } #sets accumulator's initial value to 0

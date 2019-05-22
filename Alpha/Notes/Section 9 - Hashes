@@ -1,0 +1,43 @@
+Section 9: Hashes
+
+Vocabulary:
+Hash - an array-like data structure that abstracts away from the hardware implementation of an array by depositing and retrieving values based on a key and a value. An array is a hash where the key is the numerical insertion order of the hashed value
+Key - the "address" of a hash's key-value pair
+Value - the stored information of a hash's key-value pair
+
+Key Concepts:
+  .each works differently - it passes two arguments to the given block
+    -e.g. hsh.each { |key, val| hsh[key] = }
+  .each_index is not allowed on hashes
+  Other enumerables (that don't use indices) are all available
+  Hashes can easily count the number of objects in a collection, e.g.:
+    VALUES = [1,2,3,3,4,3,2,5,1,2,6];
+    counts = Hash.new(0);
+    VALUES.each {|item| counts[item] += 1}
+
+Ruby keywords:
+  => (hash rocket) - assigns a key to a value in a hash (curly braces style)
+    - e.g. my_hsh = {:me => "David". :you => "other person"}
+    - this is equivalent to my_hsh[:me] = "David"; my_hsh[:you] = "other person"
+    - Syntactic sugar: If all of the keys are symbols you can declare a hash by:
+      hsh = {
+              me:"David",
+              you:"other person"
+            }
+  Hash.new(DEFAULT) - initializes a hash where any undefined key returns DEFAULT instead of nil
+  HASH.include?(ARG) - returns a boolean indicating whether ARG is a key in HASH
+    - synonyms: .key? and .has_key?
+  HASH.value?(ARG) returns a boolean giving whether ARG is a value in HASH
+    - synonym: .has_value?
+  .keys - returns an array of all a hash's keys
+  .values - returns an array of all a hash's values (not unique)
+  .length - returns the number of key-value pairs
+  .to_a - returns an array of arrays (the inner arrays hold the key and the value)
+  .to_h - converts an array of 2 element arrays to a hash
+
+  .each_key
+  .each_value
+
+  .map returns an array
+  .select / .reject  return a hash
+  .sort_by returns a nested array

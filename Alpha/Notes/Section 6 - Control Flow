@@ -1,0 +1,20 @@
+Section 6: Control Flow
+
+Vocabulary:
+  Block: an anonymous method (in curly braces or a do / end block)
+  e.g. [1..100].{|i| puts i}
+
+Key Concepts:
+  - Iterators over closed sets are preferable to loops.
+  - Blocks are closures: they can access variables from the method, but the method can't access variables from the block
+Ruby keywords:
+  while CONDITION / end - loop so long as CONDITION is true
+  until CONDITION / end - loop so long as CONDITION is false
+  break - prematurely exit a loop
+  return VALUE - exit a loop returning VALUE
+  next - skip ahead to a new iteration of a loop prematurely
+
+  THING.each {BLOCK} - do the block to each element and return the original THING
+  THING.each_index {BLOCK} - do the block to each element's index and return the original THING
+  STRING.each_char {BLOCK} - do the block to each character in the string and return the original STRING
+  

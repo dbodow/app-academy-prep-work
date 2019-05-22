@@ -1,0 +1,24 @@
+Section 4: Strings
+
+Vocabulary:
+
+Key Concepts:
+  String Interpolation:
+    - When writing a string, you can add variable to be filled inside of it
+    - e.g. "Hi there, #{NAME}!" will fill in #{NAME} with the variable NAME
+    - Ruby uses \ as an escape character in front of special characters
+Ruby keywords:
+  # These all do what the name says on the tin.
+  .downcase / .downcase!
+  .upcase / .upcase!
+  .capitalize / .capitalize!
+  .swapcase / .swapcase!
+
+   # Same as arrays unless noted otherwise
+   .length
+   .reverse / .reverse!
+   .empty?
+   .include(ARG)?
+   .index(SUBSTR) # For strings, this words with substrings, eg. "full".index("ll") -> 2
+   .delete(SUBSTR) # does not modify receiver for strings; .delete! is available now too
+   .count(SUBSTR) # requires an argument for strings

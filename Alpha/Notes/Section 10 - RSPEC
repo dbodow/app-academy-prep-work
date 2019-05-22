@@ -1,0 +1,19 @@
+Section 10: RSPEC
+
+Vocabulary:
+  Gem: a self contained ruby program / library
+  Bundler: manages the development environment for a project
+    - creates a locked version of each gem in the Gemfile
+    - this allows others to download the project and get the same results
+
+Key Concepts:
+  Basic File Hierarchy:
+    FOLDER/
+    |- lib/ (actual code)
+    |- spec/ (testing files)
+    |- Gemfile
+    |- Gemfile.lock
+
+Keywords:
+  gem install bundler - installs the bundler gem (just do this once per computer)
+  bundle install - installs the gems from the gemfile (do once per gemfile update)

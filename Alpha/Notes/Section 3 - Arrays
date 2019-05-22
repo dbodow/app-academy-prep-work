@@ -1,0 +1,74 @@
+Section 3: Arrays
+
+Vocabulary:
+  Array: a list of numbers stored in contiguous memory (the computer carves out a memory block for the array on initializing it and resizes when the array is resized)
+    - Ruby arrays are exponentially resized as needed
+    - Performance: c.f. https://stackoverflow.com/questions/22075055/are-ruby-arrays-true-arrays
+
+Key Concepts:
+  Array Indexing:
+    - Arrays are indexed starting at 0
+    - Indexing loops around in arrays
+      e.g. ["a","b","c"][-1] -> "c"
+      - This is a great trick for looping through to the last element of an array!
+  Multiple Assignment:
+    - You can set any number of array elements at once
+      - e.g. [1, 2, 3][0..1] = "a", "b" -> ["a", "b", 3]
+    - This can be done with variables too
+      - e.g. a, b = 1, 2
+  Array Destructuring:
+    - You can set any number of variables at once from an array
+      - e.g. a, b = [1, 2, 3] # the 3 is just ignored
+
+Ruby keywords:
+  Slicing: ARRAY[INITIAL_INDEX, LENGTH]
+    - e.g. ["a","b","c"][1,2] -> ["b","c"]
+    - e.g. ["a","b","c","d"][1..3] -> ["b","c","d"]
+    - This is syntactic sugar for the .slice method
+
+  Array Methods:
+    .push(ARG) - add element to end and return array (same as the << operator)
+    .pop - remove and return element from end
+    .shift(ARG) - add element to front and return array
+    .unshift - remove and return element from front
+
+    .concat(ARRAY) - concatenates ARRAY after the receiver array (same as the + operator except .concat modifies the original array, while + does not. += will modify the original)
+
+    .join(STR) - first maps to_s.concat(STR) over all array elements, then folds the elements with the + string operator
+
+    .length - returns the length of the array as an int
+
+    .sort - returns a new array sorted alphanumerically
+    .sort! - reassigns the old array to be sorted alphanumerically
+
+    .reverse - reverses the order of elements in the array
+    .reverse! - ARR = ARR.reverse
+
+    .rotate(INDEX) - returns an array rotated to have the specified INDEX as the new starting point
+    .rotate! - ARR = ARR.rotate
+
+    .uniq - returns an array with duplicates removed (the leftmost unique value is kept)
+    .uniq!
+
+    .flatten - removes all array nesting
+    .flatten!
+
+    .compact - removes all nil elements
+    .compact!
+
+    .max - return max value; array must be all nums or all str (can't mix nums and strs)
+    .min - return min value
+
+    .count(ARG) - counts how many times ARG shows up in the array
+
+    .empty? - returns true iff the array is []
+
+    .include?(ARG) - returns true iff ARG is in the array
+
+    .index(ARG) - returns the integer of the first index ARG appears at in the array; returns nil otherwise
+
+    .delete(ARG) - deletes all instances of ARG from the array and then returns ARG. If no copies of ARG are found, returns nil. Modifies the array.
+
+    .take(INT) - takes the first INT elements of the array; does not modify the array. Same as ARR[0..INT-1]
+
+    .drop(INT) - returns the array after removing the first INT elements. Same as ARR[INT-1,ARR.length - 1]

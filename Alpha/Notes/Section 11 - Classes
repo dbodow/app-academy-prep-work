@@ -1,0 +1,40 @@
+Section 11 - Classes
+
+Vocabulary:
+- Classes are blueprints for making objects with a specified data structure
+- Instances are objects created from a class
+
+Key Concepts:
+  - Monkey-patching: you can modify existing classes by calling them and making changes
+    - e.g. The following creates the #palindrome? method
+      class String
+        def palindrome?
+          self == self.reverse
+        end
+      end
+  - Use classes instead of hashes when you don't only want to store data but also need methods
+  - initialize is called any time an instance of a class is created
+  - instance variables appear with a @ in front
+    - e.g. @my_var
+  - class variables appear with a @@ in front and are shared across all objects in a class
+    - e.g. @@num_initialized
+  - instance methods can access instance variables, but you can't access them directly otherwise
+    - e.g. the following raises an error:
+      my_object.@my_variable = 2
+  - class methods are accessed from the class itself, not an instance of it
+    - e.g. suppose `my_method' is a class method defined in a class called `Me'
+      - you define it with `def self.my_method' (class var), not `def my_method' (instance var)
+      - you call it with `Me.my_method', not `Me.new.my_method'
+  - instances use accessor functions to read and write variables
+  - factory methods are instance methods that return new objects
+  - inside an instance method, `self.thing' can (should) be dropped to merely `thing'
+
+Ruby keywords:
+  .is_a?(THING) - tests whether self is of type THING
+    - e.g. "hi".is_a?(String) -> true
+  .class - returns the class of self
+    - e.g. "hi".class -> String
+  CLASS.new - creates a new object of CLASS class
+  attr_reader :var - creates a class method `var' that returns :var
+  attr_writer :var = INPUT - creates a class method `=var' that writes @var INPUT
+  attr_accessor :var - creates a reader and writer for @var

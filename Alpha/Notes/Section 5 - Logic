@@ -1,0 +1,22 @@
+Section 5: Logic
+
+Vocabulary:
+Truthiness: anything except false or nil will act as a true value in a logical test
+Falsiness: false and nil will act as false in a logical test
+
+Key Concepts:
+  Use ||, &&, and ! instead of or, and, and not; the latter 3 have a lower precedence in the order of operations and can cause weird errors
+    IMPORTANT: These return the last truthy value evaluated, not necessarily a boolean
+
+  Short circuit evaluation: for logical tests, Ruby ends evaluation as soon as a test's result has been determined
+
+  Sometimes logical tests will provide unexpected values that are truthily correct:
+    e.g. nil && false -> nil
+    e.g. false && nil -> false #due to the short circuit eval
+    TRICK: use !!VALUE to map it to the correct true boolean
+
+  NOTE: !!0 -> true
+
+Ruby keywords:
+  <=> (spaceship operator): Returns -1 if the left is smaller, 0 if equal, and 1 if the left is bigger
+    - e.g. 3 <=> 5 --> -1
